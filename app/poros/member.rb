@@ -1,4 +1,4 @@
-class Member < ApplicationRecord
+class Member 
   attr_reader :name, :role, :house, :patronus, :order_of_phoenix
 
   def initialize(info)
