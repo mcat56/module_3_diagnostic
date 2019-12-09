@@ -1,11 +1,19 @@
 <h1> Order Members  </h1>
 
-<h2>Order Members: <%= @members.length %></h2>
+<h2>Order Members: <%= @facade.member_count %></h2>
 
+<section class = 'members'>
+  <% @facade.get_order_members.each_with_index do |member, index| %>
+    <section id='member-<%=index%>'>
+      <p>Name: <%= member.name %></p>
+      <% if member.role != nil %>
+        <p>Role: <%= member.role %></p>
+      <% end %>
+      <% if member.patronus != nil %>
+        <p>Patronus: <%= member.patronus %></p>
+      <% end %>
+      <p>House: <%= member.house %></p>
+    </section>
+  <% end  %>
 
-<% @members.each do |member| %>
-  <p>Name: <%= member.name %></p>
-  <p>Role: <%= member.role %></p>
-  <p>House: <%= member.house %></p>
-  <p>Patronus: <%= member.patronus %></p>
-<% end  %>
+</section>

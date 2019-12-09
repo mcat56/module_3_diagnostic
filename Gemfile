@@ -18,8 +18,6 @@ group :development, :test do
   gem 'pry'
   gem 'launchy'
   gem 'shoulda-matchers'
-  gem 'vcr'
-  gem 'webmock'
 end
 
 group :test do

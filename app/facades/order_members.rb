@@ -1,12 +1,24 @@
 class OrderMembers
 
+  def initialize(house)
+    @house = house
+  end
+
   def get_order_members
     service = OrderMembersService.new
-    @members = service.order_members_json(house)
+    members_json = service.get_members(@house)
 
-    @members.map do |member|
+    members = members_json.map do |member|
       Member.new(member)
-    end 
+    end
+
+    members.select {|member| member.order_of_phoenix == true }
+
   end
+
+  def member_count
+    get_order_members.length
+  end
+
 
 end
